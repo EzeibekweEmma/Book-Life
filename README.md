@@ -7,12 +7,12 @@ Learning the concept of React Router
 
 - Vite React.js
 - React-router
-- Tailwind Css
+- Tailwind CSS
 
 ## Installation and Setup
 
 - Clone the repository from GitHub: ```sh git clone https://github.com/ezeibekweemma/Book-Life.git```
-- Navigate to the project directory: ```sh cd Famwork```
+- Navigate to the project directory: ```sh cd Book-Life```
 - Install dependencies: ```sh npm install```
 - Start the server: ```sh npm run dev```
 - Wait for Vite to start the development server and compile your project's code.
