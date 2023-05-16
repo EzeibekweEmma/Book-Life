@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 const ViewBook = () => {
   const [bookId, setBookId] = useState("");
@@ -16,12 +16,20 @@ const ViewBook = () => {
 
   const { image, title, price, subtitle } = bookId;
 
+  const location = useLocation();
+  const backToBooks = location.state?.search || "";
+  const backToWhatBooks = location.state?.type || "all";
+  
   return (
     <section className="flex bg-slate-700 text-white justify-center">
       {bookId ? (
         <div className="max-w-full m-5 p-2 rounded-md">
-          <Link to="/books" className="p-1 text-sm  text-green-500 rounded-lg">
-            ‹‹‹ Back to books
+          <Link
+            to={`..?${backToBooks}`}
+            relative="path"
+            className="p-1 text-sm  text-green-500 rounded-lg"
+          >
+            ‹‹‹ Back to {backToWhatBooks} books
           </Link>
           <img
             src={image}

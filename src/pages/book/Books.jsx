@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Book from "./Book";
 
 const Books = () => {
@@ -24,23 +24,29 @@ const Books = () => {
         }
       });
   }, []);
-  //filting the book
+
+  // filting the books
   const displayedBooks = typeFilter
     ? bookApi.filter(
         (url) => url.url.toLocaleLowerCase() === typeFilter.toLocaleLowerCase()
       )
     : bookApi;
-  // console.log(displayedBooks);
 
   const newBook = displayedBooks.map((book) => (
-    <Book key={book.isbn13} book={book} />
+    <Book
+      key={book.isbn13}
+      book={book}
+      getState={{ search: urlParam.toString(), type: typeFilter }}
+    />
   ));
 
   const styledParam = "px-1.5 py-1 mr-1 rounded-md hover:border";
   return (
     <section className=" p-7 bg-slate-700 text-white">
-      <h2>Explore Our Book Options</h2>
-      <section>
+      <section className="ml-5">
+        <h2 className="font-semibold text-3xl mb-5">
+          Explore Our Book Options
+        </h2>
         <button
           className={
             typeFilter === "python"

@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Book = ({ book: { isbn13, title, price, subtitle, image } }) => {
+const Book = ({
+  book: { isbn13, title, price, subtitle, image },
+  getState,
+}) => {
   return (
     <Link
       className="max-w-xs m-2 hover:border-y-4 rounded-xl border-green-600"
       to={`/books/${isbn13}`}
+      state={getState}
     >
       <img
         src={image}
